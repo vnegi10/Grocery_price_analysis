@@ -50,6 +50,9 @@ md"
 # ╔═╡ 935e725d-ea1c-45b0-9f29-3689d88bade0
 url_coop_veggies = "https://www.coop.nl/categorie/boodschappen.groenten?filters=CategoryNameLevel1%3DGroenten%26productFilter%3Dfallback_searchquerydefinition%26category%3Dboodschappen%2Fgroenten&page=1"
 
+# ╔═╡ ed854c54-306f-4f92-885a-792d88ea97d7
+url_coop_fruits = "https://www.coop.nl/categorie/boodschappen.fruit?filters=CategoryNameLevel1%3DFruit%26productFilter%3Dfallback_searchquerydefinition%26category%3Dboodschappen%2Ffruit&page=1"
+
 # ╔═╡ 7bd04ca0-2cb8-447d-be91-a02077e9d67c
 md"
 ### Parse html data
@@ -203,14 +206,8 @@ md"
 #### Get product name, quantity and price from Coop
 "
 
-# ╔═╡ 7eb3fb16-8bcf-483b-a7de-d49f9e58a8dd
-response_parsed.root
-
 # ╔═╡ cfc7981e-c7f8-4a0e-bdd9-3671af9ec02a
 class_match = eachmatch(Selector(".product-card__info"), response_parsed.root)
-
-# ╔═╡ 9318419e-a64e-44e9-acfa-03aa88d85600
-card = class_match[5]
 
 # ╔═╡ de1909a3-1c3c-4c51-8279-4794940b404d
 function get_coop_data(url::String, match::String=".product-card__info")
@@ -253,6 +250,9 @@ end
 
 # ╔═╡ 61f28512-56b0-4728-85c4-1d7654ab55c2
 get_coop_data(url_coop_veggies)
+
+# ╔═╡ db657ad0-ba96-4ae1-bd58-89558094f7a3
+get_coop_data(url_coop_fruits)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -572,6 +572,7 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╠═c19c4dfa-9488-42d0-a84a-8b81c313003a
 # ╟─ebac1a90-a601-424c-95aa-7d9de0274e4d
 # ╠═935e725d-ea1c-45b0-9f29-3689d88bade0
+# ╠═ed854c54-306f-4f92-885a-792d88ea97d7
 # ╟─7bd04ca0-2cb8-447d-be91-a02077e9d67c
 # ╠═af6cfb49-2d39-4093-a3c3-1d8b4585e63f
 # ╠═b54aac32-8de7-4524-b425-13fcba806d54
@@ -587,10 +588,9 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╠═d4dd1f81-e7a7-4bce-84fc-e24148fa9206
 # ╠═44343331-3f39-4c71-9e81-f94ab589c06c
 # ╟─073d5b53-4e8f-41fe-97bc-3c527f9242f7
-# ╠═7eb3fb16-8bcf-483b-a7de-d49f9e58a8dd
 # ╠═cfc7981e-c7f8-4a0e-bdd9-3671af9ec02a
-# ╠═9318419e-a64e-44e9-acfa-03aa88d85600
 # ╟─de1909a3-1c3c-4c51-8279-4794940b404d
 # ╠═61f28512-56b0-4728-85c4-1d7654ab55c2
+# ╠═db657ad0-ba96-4ae1-bd58-89558094f7a3
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
